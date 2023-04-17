@@ -74,18 +74,37 @@ export default function Navbar() {
                   key={index}
                   className="mx-3 mb-4 capitalize cursor-pointer font-medium hover:text-blue-500 hover:scale-105 duration-100"
                 >
-                  <Link href={item.url}>{item.name}</Link>
+                  <Link
+                    href={item.url}
+                    onClick={() => {
+                      setNav(false);
+                    }}
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               );
             })}
           </ul>
           <div className="flex justify-center space-x-4">
-            <button className="px-4 py-2 text-sm rounded-md border text-blue-500 border-blue-500 ">
+            <Link
+              href="/login"
+              className="px-4 py-2 text-sm rounded-md border text-blue-500 border-blue-500"
+              onClick={() => {
+                setNav(false);
+              }}
+            >
               Login
-            </button>
-            <button className="px-4 py-2 text-sm rounded-md bg-blue-500 text-white">
+            </Link>
+            <Link
+              href="/signUp"
+              className="px-4 py-2 text-sm rounded-md bg-blue-500 text-white"
+              onClick={() => {
+                setNav(false);
+              }}
+            >
               Sign Up
-            </button>
+            </Link>
           </div>
         </div>
       )}
