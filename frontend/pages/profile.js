@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import userContext from "../src/context/user/userContext";
 import axios from "axios";
-import Footer from "../src/components/Footer";
 
 export default function profile() {
   const { user } = useContext(userContext);
@@ -17,7 +16,6 @@ export default function profile() {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setOrders(response.data);
         })
         .catch((error) => {

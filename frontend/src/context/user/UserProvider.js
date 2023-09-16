@@ -27,8 +27,9 @@ const UserProvider = (props) => {
         setUser({ loading: false, data: response?.data });
       })
       .catch((error) => {
-        setUser({ ...user, loading: false });
+        setUser({ loading: true, data: null });
         alert(error.response.data.message);
+        console.log(error);
       });
   };
 

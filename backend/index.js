@@ -17,7 +17,7 @@ app.use(cors());
 app.use(json({ limit: "20mb" }));
 
 app.get("/", (req, res) => {
-  res.send("lkfajsdf");
+  res.send("Hey we are linve ✨");
 });
 
 // All available routes
