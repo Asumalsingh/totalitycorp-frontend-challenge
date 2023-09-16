@@ -13,16 +13,6 @@
   }
 }
 
-@layer components {
-  .card {
-    background-color: theme("colors.white");
-    border-radius: theme("borderRadius.md");
-    padding: theme("spacing.4");
-    box-shadow: theme("boxShadow.md");
-  }
-  /* ... */
-}
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

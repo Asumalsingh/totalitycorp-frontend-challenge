@@ -1,10 +1,12 @@
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import LandingSection from "../src/components/LandingSection";
 import BoysHome from "../src/components/BoysHome";
 import GirlsHome from "../src/components/GirlsHome";
 import Footer from "../src/components/Footer";
-
 export default function Home() {
+  
+
   return (
     <div className="">
       <Head>
@@ -16,7 +18,6 @@ export default function Home() {
       <LandingSection />
       <BoysHome />
       <GirlsHome />
-      <Footer />
     </div>
   );
 }

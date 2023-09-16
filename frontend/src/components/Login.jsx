@@ -1,14 +1,16 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Link from "next/link";
+import axios from "axios";
 
-export default function LoginComponent() {
+export default function Login() {
   // Form validation using yup
   const loginSchema = Yup.object({
     email: Yup.string().email().required("Please enter your email"),
     password: Yup.string().min(8).required("Please enter your password"),
   });
+
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
   // Form data handeling using formic
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -19,13 +21,21 @@ export default function LoginComponent() {
       },
       validationSchema: loginSchema,
       onSubmit: (values) => {
-        console.log(values);
+        axios
+          .post(`${BASE_URL}/auth/login`, values)
+          .then((response) => {
+            localStorage.setItem("auth-token", response.data.authToken);
+            location.reload();
+          })
+          .catch((error) => {
+            alert(error.response.data.message);
+          });
       },
     });
   return (
-    <div className="card w-96">
+    <div>
       <div className="flex justify-center mb-5">
-        <h1 className="font-bold text-2xl">Login</h1>
+        <h1 className="font-bold text-2xl">LOGIN</h1>
       </div>
 
       <form action="" onSubmit={handleSubmit}>
@@ -62,14 +72,6 @@ export default function LoginComponent() {
           className="bg-blue-500 cursor-pointer text-white rounded-lg w-full px-4 py-3 my-4"
         />
       </form>
-
-      <p>
-        {" "}
-        Don&apos;t have an account,{" "}
-        <Link href="/signUp" className="text-blue-600 cursor-pointer">
-          Create one
-        </Link>
-      </p>
     </div>
   );
 }
