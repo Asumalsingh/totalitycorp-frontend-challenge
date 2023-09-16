@@ -51,7 +51,8 @@ const CartProvider = (props) => {
       })
       .catch((error) => {
         setCartItems({ ...cartItems, loading: false });
-        alert(error.response.data.message);
+        // alert(error.response.data.message);
+        console.log("Error : ", error);
       });
   };
 

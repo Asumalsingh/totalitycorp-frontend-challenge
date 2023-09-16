@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import Auth from "./Auth";
 import userContext from "../context/user/userContext";
 import cartContext from "../context/cart/cartContext";
+import Image from "next/image";
 
 export default function ProductCard({ product }) {
   const [authPopup, setAuthPopup] = useState(false);
@@ -35,11 +36,15 @@ export default function ProductCard({ product }) {
   return (
     <>
       <div>
-        <img
-          src={product.image.url}
-          alt="Product image"
-          className="h-72 w-auto mx-auto rounded-t-lg"
-        ></img>
+        <figure className="w-full">
+          <Image
+            src={product.image.url}
+            width={2000}
+            height={2000}
+            alt="Product image"
+            className="h-72 w-auto mx-auto rounded-t-lg"
+          ></Image>
+        </figure>
 
         <div className="my-2 px-4">
           <p className="font-medium text-gray-800 mb-1">

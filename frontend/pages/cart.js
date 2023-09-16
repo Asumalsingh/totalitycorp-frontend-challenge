@@ -3,6 +3,7 @@ import cartContext from "../src/context/cart/cartContext";
 import { BsTrash3 } from "react-icons/bs";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import Image from "next/image";
 
 export default function Cart() {
   const [blurIndex, setBlurIndex] = useState();
@@ -93,7 +94,12 @@ export default function Cart() {
                   <div className="bg-white w-full mb-2 p-4">
                     <div className="flex space-x-6 ">
                       <figure className="w-24 sm:w-32">
-                        <img src={item.details?.image.url} alt="pic" />
+                        <Image
+                          src={item.details?.image.url}
+                          width={2000}
+                          height={2000}
+                          alt="pic"
+                        ></Image>
                       </figure>
                       <div>
                         <h2 className="sm:text-xl">

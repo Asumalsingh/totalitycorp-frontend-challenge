@@ -1,13 +1,14 @@
 import React, { useEffect, useContext, useState } from "react";
 import userContext from "../src/context/user/userContext";
 import axios from "axios";
+import Image from "next/image";
 
-export default function profile() {
+export default function Profile() {
   const { user } = useContext(userContext);
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const [orders, setOrders] = useState();
 
   useEffect(() => {
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
     if (user.data) {
       axios
         .get(`${BASE_URL}/order/get`, {
@@ -69,7 +70,7 @@ export default function profile() {
                     {order.products.map((product) => (
                       <div className="flex space-x-2 mb-2" key={product._id}>
                         <figure className="w-20">
-                          <img src={product.image} alt="ph" />
+                          <Image src={product.image} width={1000} height={1000} alt="ph"></Image>
                         </figure>
                         <div>
                           <p className="font-semibold">{product.name}</p>
