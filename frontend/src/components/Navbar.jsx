@@ -12,9 +12,9 @@ export default function Navbar() {
   const [authPopup, setAuthPopup] = useState(false);
   const data = [
     { name: "Home", url: "/" },
-    { name: "Shop All", url: "/collections/all" },
-    { name: "Shop Men", url: "/collections/mens" },
-    { name: "Shop Women", url: "/collections/womens" },
+    { name: "Shop All", url: "/collections" },
+    { name: "Shop Men", url: "/collections?category=mens" },
+    { name: "Shop Women", url: "/collections?category=womens" },
   ];
 
   const { user } = useContext(userContext);

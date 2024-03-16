@@ -18,7 +18,6 @@ export default function AllProduct() {
     { value: "phl", label: "Price, high to low" },
   ];
   const [filterQuery, setFilterQuery] = useState({
-    collection: null,
     productType: [],
     price: [],
     size: [],
@@ -26,29 +25,19 @@ export default function AllProduct() {
   const [openFilter, setOpenFilter] = useState(false);
 
   const router = useRouter();
-  const query = router.query.collectionType;
+  const query = router.query.category || "";
   const { getProducts, products } = useContext(productContext);
 
   useEffect(() => {
-    if (query) {
-      if (query === "all") {
-        setFilterQuery({ ...filterQuery, collection: "" });
-      } else {
-        setFilterQuery({ ...filterQuery, collection: query });
-      }
-    }
-  }, [query]);
-
-  useEffect(() => {
-    if (filterQuery.collection !== null) getProducts(filterQuery);
+    if(!router.isReady) return;
+    getProducts({...filterQuery, collection: query });
   }, [filterQuery, query]);
 
   return (
     <section className="max-w-screen-xl mx-auto px-5 py-20">
       <div className="text-center mb-6">
         <p className="text-4xl font-bold capitalize">
-          {router.query.collectionType}{" "}
-          {router.query.collectionType === "all" && "Products"}
+          {query}{" "} {!query && "All Products"}
         </p>
       </div>
       <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">

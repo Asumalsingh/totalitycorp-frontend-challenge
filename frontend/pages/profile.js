@@ -63,9 +63,9 @@ export default function Profile() {
               <div className="border rounded-lg p-2 mb-3" key={order._id}>
                 <div className="grid grid-cols md:grid-cols-2 gap-6 divide-y md:divide-x">
                   <div className="">
-                    <p className="font-semibold text-xl mb-2">
+                    <p className="font-semibold text-sm mb-2">
                       OrderId:{" "}
-                      <span className="text-gray-500"> {order._id}</span>
+                      <span className="text-gray-500" > {order._id}</span>
                     </p>
                     {order.products.map((product) => (
                       <div className="flex space-x-2 mb-2" key={product._id}>
@@ -74,7 +74,7 @@ export default function Profile() {
                         </figure>
                         <div>
                           <p className="font-semibold">{product.name}</p>
-                          <p className="font-medium text-sm">{product.price}</p>
+                          <p className="font-medium text-sm">₹ {product.price}</p>
                           <p className="text-xs text-gray-500">
                             qty: {product?.quantity}
                           </p>
@@ -82,7 +82,7 @@ export default function Profile() {
                       </div>
                     ))}
                   </div>
-                  <div className="md:pl-3 flex flex-col justify-between h-full ">
+                  <div className="md:pl-3 w-full flex flex-col justify-between h-full ">
                     <div className="">
                       <p className="font-semibold text-xl mb-2">Shipping</p>
                       <p>Email : {order.shipping.email}</p>
@@ -98,7 +98,7 @@ export default function Profile() {
 
                     <div className="bg-yellow-100 p-2 mt-2">
                       <p className="font-semibold text-lg">
-                        Total: {order.totalAmount}
+                        Total: ₹ {order.totalAmount}
                       </p>
                     </div>
                   </div>

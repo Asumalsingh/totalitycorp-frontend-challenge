@@ -57,13 +57,9 @@ router.get("/all", async (req, res) => {
     filter.type = { $in: productType };
   }
   // filter for size
-  if (size) {
-    filter.size = { $in: size };
-  }
+  if (size) filter.size = { $in: size };
   // filter for price
-  if (price) {
-    filter.price = { $gte: Number(price[0]), $lte: Number(price[1]) };
-  }
+  if (price) filter.price = { $gte: Number(price[0]), $lte: Number(price[1]) };
 
   try {
     const products = await productModel.find({
