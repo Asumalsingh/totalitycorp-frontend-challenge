@@ -16,7 +16,7 @@ export default function LandingSection() {
           <p className="text-white font-bold text-4xl sm:text-6xl">Unleash your style</p>
           <p className="text-white font-bold my-4 text-5xl sm:text-6xl">With us</p>
           <span className="px-5 shadow-md py-2 text-white bg-blue-500 rounded-full hover:scale-105 duration-100  ">
-            <Link href="/collections/all">Shop now</Link>
+            <Link href="/collections">Shop now</Link>
           </span>
         </div>
       </section>
