@@ -31,7 +31,7 @@ export default function BoysHome() {
 
       <div className="flex justify-center mt-8">
         <span className="px-4 py-2 rounded-md bg-blue-500 text-white hover:scale-105 duration-100">
-          <Link href="/collections/mens">Show More</Link>
+          <Link href="/collections?category=mens">Show More</Link>
         </span>
       </div>
     </section>

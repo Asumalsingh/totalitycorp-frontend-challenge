@@ -34,7 +34,7 @@ export default function GirlsHome() {
       </div>
 
       <div className="flex justify-center mt-8">
-        <Link href="/collections/womens">
+        <Link href="/collections?category=womens">
           <div className="px-4 py-2 rounded-md bg-blue-500 text-white  cursor-pointer hover:scale-105 duration-100">
             Show More
           </div>
